@@ -13,3 +13,10 @@ result = client.models.generate_content(model = "gemini-2.0-flash-001", contents
 print(result.text)
 print(f"Prompt tokens: {result.usage_metadata.prompt_token_count}")
 print(f"Response tokens: {result.usage_metadata.candidates_token_count}")
+
+
+if len(sys.argv) < 2:
+    print("Error:Please enter aprompt")
+    sys.exit(1)
+prompt = sys.argv[1]
+client.models.generate_content(model = "gemini-2.0-flash-001", contents = prompt)
